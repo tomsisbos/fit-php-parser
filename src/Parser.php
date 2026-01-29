@@ -124,7 +124,10 @@ final class Parser
 
     private function decodeMessageDefinition(): void
     {
+        error_log(sprintf("[Definition] Reading at position %d", $this->stream->position()));
         $messageDefinition = DefinitionMessage::create($this->stream);
+        error_log(sprintf("[Definition] Defined local=%d, global=%d, fields=%d",
+            $messageDefinition->localMesgNum, $messageDefinition->globalMessageNumber, $messageDefinition->numFields));
 
         $this->localMessageDefinitions[$messageDefinition->localMesgNum] = $messageDefinition;
     }
@@ -132,8 +135,10 @@ final class Parser
     private function decodeMessage(): void
     {
         $recordHeader = $this->stream->readByte();
-
         $localMesgNum = $recordHeader & Mask::LOCAL_MESG_NUM_MASK->value;
+
+        error_log(sprintf("[Data] Reading local=%d at position %d, have defs: [%s]",
+            $localMesgNum, $this->stream->position() - 1, implode(',', array_keys($this->localMessageDefinitions))));
 
         if (false === \array_key_exists($localMesgNum, $this->localMessageDefinitions)) {
             throw new \RuntimeException("Invalid record definition: {$localMesgNum}");
