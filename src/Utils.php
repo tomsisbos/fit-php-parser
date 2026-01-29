@@ -85,6 +85,11 @@ final readonly class Utils
             throw new \InvalidArgumentException(\sprintf('%s does not exist', $class));
         }
 
+        // Handle NaN and invalid float values by treating as unknown
+        if (is_float($field->value) && is_nan($field->value)) {
+            return \FitParser\Records\UnknownValue::create(0);
+        }
+
         $valueObject = $class::create($field->value);
 
         if ($valueObject instanceof ValueInterface) {
