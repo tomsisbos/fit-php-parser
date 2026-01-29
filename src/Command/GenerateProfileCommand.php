@@ -565,7 +565,7 @@ class GenerateProfileCommand extends Command
 
                 $unit = $this->transliterateUnits($field['units']);
                 $valueObjectNamespace->addUse(Unit::class);
-                $class->addConstant('UNIT', $unit)->setPublic()->setType(Unit::class);
+                $class->addConstant('UNIT', $unit)->setPublic();
 
                 $valueObjectNamespace->addUse($interface);
                 $class->addImplement($interface);
