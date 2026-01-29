@@ -51,11 +51,14 @@ final readonly class DefinitionMessage
         $fieldDefinitions = [];
 
         for ($i = 0; $i < $numFields; ++$i) {
-            $fieldDefinition = Field::create(
-                $stream->readByte(),
-                $stream->readByte(),
-                BaseType::from($stream->readByte())
-            );
+            $fieldDefNum = $stream->readByte();
+            $size = $stream->readByte();
+            $baseTypeValue = $stream->readByte();
+
+            // Try to get the base type, fallback to BYTE for unknown types
+            $baseType = BaseType::tryFrom($baseTypeValue) ?? BaseType::BYTE;
+
+            $fieldDefinition = Field::create($fieldDefNum, $size, $baseType);
 
             $fieldDefinitions[] = $fieldDefinition;
 
