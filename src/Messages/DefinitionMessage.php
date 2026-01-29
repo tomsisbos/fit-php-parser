@@ -56,7 +56,11 @@ final readonly class DefinitionMessage
             $baseTypeValue = $stream->readByte();
 
             // Try to get the base type, fallback to BYTE for unknown types
-            $baseType = BaseType::tryFrom($baseTypeValue) ?? BaseType::BYTE;
+            $baseType = BaseType::tryFrom($baseTypeValue);
+            if ($baseType === null) {
+                error_log("[FIT Debug] Unknown base type value: $baseTypeValue (0x" . dechex($baseTypeValue) . "), size: $size, using actual size from file");
+                $baseType = BaseType::BYTE;
+            }
 
             $fieldDefinition = Field::create($fieldDefNum, $size, $baseType);
 
