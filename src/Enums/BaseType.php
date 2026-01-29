@@ -127,10 +127,15 @@ enum BaseType: int
     {
         return match ($baseType) {
             self::ENUM,
+            self::ENUM_LE,
             self::SINT8,
-            self::BYTE => 'c',
+            self::SINT8_LE,
+            self::BYTE,
+            self::BYTE_LE => 'c',
             self::UINT8Z,
-            self::UINT8 => 'C',
+            self::UINT8Z_LE,
+            self::UINT8,
+            self::UINT8_LE => 'C',
             self::SINT16 => $littleEndian ? 's' : 'S',
             self::SINT16_LE => 's',
             self::UINT16,
@@ -143,7 +148,8 @@ enum BaseType: int
             self::SINT32_LE,
             self::UINT32_LE,
             self::UINT32Z_LE => 'V',
-            self::STRING => 'a*',
+            self::STRING,
+            self::STRING_LE => 'a*',
             self::FLOAT32 => $littleEndian ? 'f' : 'G',
             self::FLOAT32_LE => 'f',
             self::FLOAT64 => $littleEndian ? 'd' : 'E',
@@ -152,7 +158,8 @@ enum BaseType: int
             self::SINT64_LE => 'q',
             self::UINT64,
             self::UINT64Z => $littleEndian ? 'P' : 'Q',
-            self::UINT64_LE => 'P',
+            self::UINT64_LE,
+            self::UINT64Z_LE => 'P',
         };
     }
 
