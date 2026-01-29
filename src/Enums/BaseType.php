@@ -25,26 +25,39 @@ enum BaseType: int
     case SINT64 = 0x0E;
     case UINT64 = 0x0F;
     case UINT64Z = 0x10;
+    case ENUM_LE = 0x80;
+    case SINT8_LE = 0x81;
+    case UINT8_LE = 0x82;
     case SINT16_LE = 0x83;
     case UINT16_LE = 0x84;
     case SINT32_LE = 0x85;
     case UINT32_LE = 0x86;
+    case STRING_LE = 0x87;
     case FLOAT32_LE = 0x88;
     case FLOAT64_LE = 0x89;
+    case UINT8Z_LE = 0x8A;
     case UINT16Z_LE = 0x8B;
     case UINT32Z_LE = 0x8C;
+    case BYTE_LE = 0x8D;
     case SINT64_LE = 0x8E;
     case UINT64_LE = 0x8F;
+    case UINT64Z_LE = 0x90;
 
     public static function sizeFrom(BaseType $baseType): int
     {
         return match ($baseType) {
             self::ENUM,
+            self::ENUM_LE,
             self::SINT8,
+            self::SINT8_LE,
             self::STRING,
+            self::STRING_LE,
             self::UINT8Z,
+            self::UINT8Z_LE,
             self::BYTE,
-            self::UINT8 => 1,
+            self::BYTE_LE,
+            self::UINT8,
+            self::UINT8_LE => 1,
             self::SINT16,
             self::SINT16_LE,
             self::UINT16,
@@ -65,7 +78,8 @@ enum BaseType: int
             self::SINT64_LE,
             self::UINT64,
             self::UINT64_LE,
-            self::UINT64Z => 8,
+            self::UINT64Z,
+            self::UINT64Z_LE => 8,
         };
     }
 
