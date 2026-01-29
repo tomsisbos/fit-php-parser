@@ -11,7 +11,7 @@ use Symfony\Component\String\UnicodeString;
 
 final readonly class Utils
 {
-    private const int FIT_EPOCH = 631072771;
+    private const FIT_EPOCH = 631072771;
 
     /**
      * @param array<int, null|float|int> $values

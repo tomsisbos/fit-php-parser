@@ -6,8 +6,8 @@ namespace FitParser;
 
 final readonly class Header
 {
-    private const array VALID_HEADER_SIZE = [12, 14];
-    private const int HEADER_SIZE_WITH_CRC = 14;
+    private const VALID_HEADER_SIZE = [12, 14];
+    private const HEADER_SIZE_WITH_CRC = 14;
 
     private function __construct(
         public int $protocolVersion,

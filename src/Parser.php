@@ -13,8 +13,8 @@ use Symfony\Component\String\ByteString;
 
 final class Parser
 {
-    private const int MESG_DEFINITION_MASK = 0x40;
-    private const int MESG_HEADER_MASK = 0x00;
+    private const MESG_DEFINITION_MASK = 0x40;
+    private const MESG_HEADER_MASK = 0x00;
     private Header $header;
 
     private Stream $stream;
