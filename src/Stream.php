@@ -33,7 +33,7 @@ final class Stream
 
     public function peekByte(): int
     {
-        $bytes = $this->string->slice($this->position, $this->position + 1)->toString();
+        $bytes = $this->string->slice($this->position, 1)->toString();
 
         $uint8 = unpack(BaseType::unpackFormatFrom(BaseType::UINT8).'uint8', $bytes);
 
