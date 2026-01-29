@@ -47,10 +47,16 @@ final readonly class DefinitionMessage
         $globalMessageNumber = $stream->readUInt16($littleEndian);
         $numFields = $stream->readByte();
 
+        error_log(sprintf('[DefMsg] Header=0x%02X, local=%d, global=%d, numFields=%d, hasDev=%d, pos=%d',
+            $recordHeader, $localMesgNum, $globalMessageNumber, $numFields,
+            ($recordHeader & Mask::DEV_MESG_MASK->value) === Mask::DEV_MESG_MASK->value ? 1 : 0,
+            $stream->position()));
+
         $messageSize = 0;
         $fieldDefinitions = [];
 
         for ($i = 0; $i < $numFields; ++$i) {
+            $posBeforeField = $stream->position();
             $fieldDefNum = $stream->readByte();
             $size = $stream->readByte();
             $baseTypeValue = $stream->readByte();
@@ -58,7 +64,8 @@ final readonly class DefinitionMessage
             // Try to get the base type, fallback to BYTE for unknown types
             $baseType = BaseType::tryFrom($baseTypeValue);
             if ($baseType === null) {
-                error_log("[FIT Debug] Unknown base type value: $baseTypeValue (0x" . dechex($baseTypeValue) . "), size: $size, using actual size from file");
+                error_log(sprintf("[FIT Debug] Field %d/%d at pos %d: Unknown base type value: %d (0x%02X), fieldNum=%d, size=%d",
+                    $i+1, $numFields, $posBeforeField, $baseTypeValue, $baseTypeValue, $fieldDefNum, $size));
                 $baseType = BaseType::BYTE;
             }
 
