@@ -102,8 +102,8 @@ final class Parser
     {
         $header = $this->stream->readByte();
 
-        // Extract local message number (bits 5-2)
-        $localMesgNum = ($header >> 5) & 0x03;
+        // Extract local message number (bits 7-5, giving values 4-7 since bit 7 is always 1)
+        $localMesgNum = ($header >> 5) & 0x07;
 
         // Extract time offset (bits 4-0)
         $timeOffset = $header & self::TIME_OFFSET_MASK;
