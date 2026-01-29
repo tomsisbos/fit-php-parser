@@ -16,5 +16,5 @@ final readonly class MetabolicAge implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::YEARS;
+    public const UNIT = Unit::YEARS;
 }

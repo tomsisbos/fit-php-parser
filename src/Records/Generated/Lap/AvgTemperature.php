@@ -16,5 +16,5 @@ final readonly class AvgTemperature implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::CELCIUS;
+    public const UNIT = Unit::CELCIUS;
 }

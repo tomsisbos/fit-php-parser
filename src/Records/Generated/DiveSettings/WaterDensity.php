@@ -16,5 +16,5 @@ final readonly class WaterDensity implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::KILOGRAM_PER_CUBIC_METER;
+    public const UNIT = Unit::KILOGRAM_PER_CUBIC_METER;
 }

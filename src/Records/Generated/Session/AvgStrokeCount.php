@@ -16,5 +16,5 @@ final readonly class AvgStrokeCount implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::STROKES_PER_LAP;
+    public const UNIT = Unit::STROKES_PER_LAP;
 }

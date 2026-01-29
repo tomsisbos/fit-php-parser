@@ -16,5 +16,5 @@ final readonly class NextStopTime implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::SECONDS;
+    public const UNIT = Unit::SECONDS;
 }

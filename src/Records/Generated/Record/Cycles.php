@@ -16,5 +16,5 @@ final readonly class Cycles implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::CYCLES;
+    public const UNIT = Unit::CYCLES;
 }

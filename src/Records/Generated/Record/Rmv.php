@@ -16,5 +16,5 @@ final readonly class Rmv implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::LITER_PER_MINUTE;
+    public const UNIT = Unit::LITER_PER_MINUTE;
 }

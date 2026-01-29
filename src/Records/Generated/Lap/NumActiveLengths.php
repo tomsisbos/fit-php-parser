@@ -16,5 +16,5 @@ final readonly class NumActiveLengths implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::LENGTHS;
+    public const UNIT = Unit::LENGTHS;
 }

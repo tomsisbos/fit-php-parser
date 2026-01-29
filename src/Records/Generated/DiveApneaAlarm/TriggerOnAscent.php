@@ -16,5 +16,5 @@ final readonly class TriggerOnAscent implements BoolValueInterface
 {
     use BoolValueTrait;
 
-    public const Unit UNIT = Unit::NONE;
+    public const UNIT = Unit::NONE;
 }

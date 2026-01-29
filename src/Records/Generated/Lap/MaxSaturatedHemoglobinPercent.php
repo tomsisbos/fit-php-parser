@@ -16,5 +16,5 @@ final readonly class MaxSaturatedHemoglobinPercent implements FloatValueInterfac
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::FACTOR;
+    public const UNIT = Unit::FACTOR;
 }

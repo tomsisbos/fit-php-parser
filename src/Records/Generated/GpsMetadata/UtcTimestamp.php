@@ -16,5 +16,5 @@ final readonly class UtcTimestamp implements DateTimeValueInterface
 {
     use DateTimeValueTrait;
 
-    public const Unit UNIT = Unit::SECONDS;
+    public const UNIT = Unit::SECONDS;
 }

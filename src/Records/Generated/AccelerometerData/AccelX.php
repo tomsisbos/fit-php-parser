@@ -16,5 +16,5 @@ final readonly class AccelX implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::COUNTS;
+    public const UNIT = Unit::COUNTS;
 }

@@ -16,5 +16,5 @@ final readonly class Completed implements BoolValueInterface
 {
     use BoolValueTrait;
 
-    public const Unit UNIT = Unit::NONE;
+    public const UNIT = Unit::NONE;
 }

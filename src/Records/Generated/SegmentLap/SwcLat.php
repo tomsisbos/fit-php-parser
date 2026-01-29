@@ -16,5 +16,5 @@ final readonly class SwcLat implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::SEMICIRCLES;
+    public const UNIT = Unit::SEMICIRCLES;
 }

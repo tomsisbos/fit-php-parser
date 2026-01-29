@@ -16,5 +16,5 @@ final readonly class BatteryVoltage implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::VOLTS;
+    public const UNIT = Unit::VOLTS;
 }

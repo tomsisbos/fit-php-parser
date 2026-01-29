@@ -16,5 +16,5 @@ final readonly class MaxSize implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::BYTES;
+    public const UNIT = Unit::BYTES;
 }

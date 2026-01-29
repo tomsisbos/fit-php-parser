@@ -16,5 +16,5 @@ final readonly class Time implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::MILLISECONDS;
+    public const UNIT = Unit::MILLISECONDS;
 }

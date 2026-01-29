@@ -16,5 +16,5 @@ final readonly class BaroPres implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::PASCALS;
+    public const UNIT = Unit::PASCALS;
 }

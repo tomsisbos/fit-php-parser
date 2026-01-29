@@ -16,5 +16,5 @@ final readonly class PositionLong implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::SEMICIRCLES;
+    public const UNIT = Unit::SEMICIRCLES;
 }

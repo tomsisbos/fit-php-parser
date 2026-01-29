@@ -16,5 +16,5 @@ final readonly class ElevSetting implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::NONE;
+    public const UNIT = Unit::NONE;
 }

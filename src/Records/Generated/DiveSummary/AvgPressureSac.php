@@ -16,5 +16,5 @@ final readonly class AvgPressureSac implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::BAR_PER_MINUTE;
+    public const UNIT = Unit::BAR_PER_MINUTE;
 }

@@ -16,5 +16,5 @@ final readonly class CalibratedAccelZ implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::GRAMS;
+    public const UNIT = Unit::GRAMS;
 }

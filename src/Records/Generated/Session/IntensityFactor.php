@@ -16,5 +16,5 @@ final readonly class IntensityFactor implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::INTENSITY_FACTOR;
+    public const UNIT = Unit::INTENSITY_FACTOR;
 }

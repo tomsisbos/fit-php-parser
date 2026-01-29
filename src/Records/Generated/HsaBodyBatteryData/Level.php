@@ -16,5 +16,5 @@ final readonly class Level implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::FACTOR;
+    public const UNIT = Unit::FACTOR;
 }

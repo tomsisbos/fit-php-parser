@@ -16,5 +16,5 @@ final readonly class AvgRightPco implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::MILLIMETERS;
+    public const UNIT = Unit::MILLIMETERS;
 }

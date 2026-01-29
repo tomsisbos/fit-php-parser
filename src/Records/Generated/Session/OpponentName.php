@@ -16,5 +16,5 @@ final readonly class OpponentName implements StringValueInterface
 {
     use StringValueTrait;
 
-    public const Unit UNIT = Unit::NONE;
+    public const UNIT = Unit::NONE;
 }

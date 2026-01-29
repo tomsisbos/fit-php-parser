@@ -16,5 +16,5 @@ final readonly class TotalStrokes implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::STROKES;
+    public const UNIT = Unit::STROKES;
 }

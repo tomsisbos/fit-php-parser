@@ -16,5 +16,5 @@ final readonly class EbikeTravelRange implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::KILOMETERS;
+    public const UNIT = Unit::KILOMETERS;
 }

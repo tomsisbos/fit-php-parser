@@ -16,5 +16,5 @@ final readonly class BasalMet implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::KILO_CALORIES_PER_DAY;
+    public const UNIT = Unit::KILO_CALORIES_PER_DAY;
 }

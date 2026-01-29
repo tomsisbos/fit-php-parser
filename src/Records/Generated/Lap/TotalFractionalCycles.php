@@ -16,5 +16,5 @@ final readonly class TotalFractionalCycles implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::CYCLES;
+    public const UNIT = Unit::CYCLES;
 }

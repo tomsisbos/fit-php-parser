@@ -16,5 +16,5 @@ final readonly class TotalWork implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::JOULES;
+    public const UNIT = Unit::JOULES;
 }

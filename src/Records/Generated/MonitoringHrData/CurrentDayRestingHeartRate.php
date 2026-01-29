@@ -16,5 +16,5 @@ final readonly class CurrentDayRestingHeartRate implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::BPM;
+    public const UNIT = Unit::BPM;
 }

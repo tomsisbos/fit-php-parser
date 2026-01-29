@@ -16,5 +16,5 @@ final readonly class GyroY implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::COUNTS;
+    public const UNIT = Unit::COUNTS;
 }

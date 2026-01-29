@@ -16,5 +16,5 @@ final readonly class AutosyncMinTime implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::MINUTES;
+    public const UNIT = Unit::MINUTES;
 }

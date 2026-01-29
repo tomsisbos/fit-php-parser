@@ -16,5 +16,5 @@ final readonly class ExerciseWeight implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::KILOGRAMS;
+    public const UNIT = Unit::KILOGRAMS;
 }

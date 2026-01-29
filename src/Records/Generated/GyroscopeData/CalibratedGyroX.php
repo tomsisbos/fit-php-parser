@@ -16,5 +16,5 @@ final readonly class CalibratedGyroX implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::DEGREES_PER_SECONDS;
+    public const UNIT = Unit::DEGREES_PER_SECONDS;
 }

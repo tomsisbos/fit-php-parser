@@ -16,5 +16,5 @@ final readonly class GrainWeight implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::NONE;
+    public const UNIT = Unit::NONE;
 }

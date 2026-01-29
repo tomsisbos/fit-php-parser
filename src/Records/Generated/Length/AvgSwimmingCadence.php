@@ -16,5 +16,5 @@ final readonly class AvgSwimmingCadence implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::STROKES_PER_MINUTE;
+    public const UNIT = Unit::STROKES_PER_MINUTE;
 }

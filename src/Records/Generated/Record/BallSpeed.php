@@ -16,5 +16,5 @@ final readonly class BallSpeed implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::METER_PER_SECONDS;
+    public const UNIT = Unit::METER_PER_SECONDS;
 }

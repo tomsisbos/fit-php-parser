@@ -16,5 +16,5 @@ final readonly class O2Toxicity implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::OXYGEN_TOXICITY_UNITS;
+    public const UNIT = Unit::OXYGEN_TOXICITY_UNITS;
 }

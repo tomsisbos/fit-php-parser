@@ -16,5 +16,5 @@ final readonly class CyclesToCalories implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::KILO_CALORIES_PER_CYCLE;
+    public const UNIT = Unit::KILO_CALORIES_PER_CYCLE;
 }

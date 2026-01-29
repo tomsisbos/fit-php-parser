@@ -16,5 +16,5 @@ final readonly class Calories implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::KILO_CALORIES_PER_MINUTE;
+    public const UNIT = Unit::KILO_CALORIES_PER_MINUTE;
 }

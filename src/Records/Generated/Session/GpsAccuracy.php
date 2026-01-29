@@ -16,5 +16,5 @@ final readonly class GpsAccuracy implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::METERS;
+    public const UNIT = Unit::METERS;
 }

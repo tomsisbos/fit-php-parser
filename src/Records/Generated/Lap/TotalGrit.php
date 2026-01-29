@@ -16,5 +16,5 @@ final readonly class TotalGrit implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::KILOG_GRITS;
+    public const UNIT = Unit::KILOG_GRITS;
 }

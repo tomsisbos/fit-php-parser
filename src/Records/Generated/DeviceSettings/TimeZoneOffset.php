@@ -16,5 +16,5 @@ final readonly class TimeZoneOffset implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::HOURS;
+    public const UNIT = Unit::HOURS;
 }

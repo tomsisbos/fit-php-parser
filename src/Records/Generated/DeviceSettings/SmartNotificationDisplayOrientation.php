@@ -16,5 +16,5 @@ final readonly class SmartNotificationDisplayOrientation implements IntValueInte
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::NONE;
+    public const UNIT = Unit::NONE;
 }

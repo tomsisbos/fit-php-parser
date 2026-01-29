@@ -16,5 +16,5 @@ final readonly class FractionalCadence implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::RPM;
+    public const UNIT = Unit::RPM;
 }

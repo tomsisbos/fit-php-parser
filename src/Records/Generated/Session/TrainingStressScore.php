@@ -16,5 +16,5 @@ final readonly class TrainingStressScore implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::TOTAL_SUSPENDED_SOLIDS;
+    public const UNIT = Unit::TOTAL_SUSPENDED_SOLIDS;
 }

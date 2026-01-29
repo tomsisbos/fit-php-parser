@@ -16,5 +16,5 @@ final readonly class RestingMetabolicRate implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::KILO_CALORIES_PER_DAY;
+    public const UNIT = Unit::KILO_CALORIES_PER_DAY;
 }

@@ -16,5 +16,5 @@ final readonly class VolumeUsed implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::LITER;
+    public const UNIT = Unit::LITER;
 }

@@ -16,5 +16,5 @@ final readonly class AvgCoreTemperature implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::CELCIUS;
+    public const UNIT = Unit::CELCIUS;
 }

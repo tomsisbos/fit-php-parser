@@ -16,5 +16,5 @@ final readonly class AscentTime implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::SECONDS;
+    public const UNIT = Unit::SECONDS;
 }

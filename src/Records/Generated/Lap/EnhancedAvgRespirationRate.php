@@ -16,5 +16,5 @@ final readonly class EnhancedAvgRespirationRate implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::BREATH_RATE;
+    public const UNIT = Unit::BREATH_RATE;
 }

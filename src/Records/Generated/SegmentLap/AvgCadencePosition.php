@@ -16,5 +16,5 @@ final readonly class AvgCadencePosition implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::RPM;
+    public const UNIT = Unit::RPM;
 }

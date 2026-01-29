@@ -16,5 +16,5 @@ final readonly class CalibratedMagZ implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::G;
+    public const UNIT = Unit::G;
 }

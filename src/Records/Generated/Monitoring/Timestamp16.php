@@ -16,5 +16,5 @@ final readonly class Timestamp16 implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::SECONDS;
+    public const UNIT = Unit::SECONDS;
 }

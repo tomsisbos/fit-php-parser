@@ -16,5 +16,5 @@ final readonly class LeftPowerPhasePeak implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::DEGREES;
+    public const UNIT = Unit::DEGREES;
 }

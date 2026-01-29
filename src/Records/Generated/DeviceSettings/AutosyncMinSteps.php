@@ -16,5 +16,5 @@ final readonly class AutosyncMinSteps implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::STEPS;
+    public const UNIT = Unit::STEPS;
 }

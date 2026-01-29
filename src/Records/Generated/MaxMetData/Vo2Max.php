@@ -16,5 +16,5 @@ final readonly class Vo2Max implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::MILLILITER_PER_KILOGRAM_PER_MINUTE;
+    public const UNIT = Unit::MILLILITER_PER_KILOGRAM_PER_MINUTE;
 }

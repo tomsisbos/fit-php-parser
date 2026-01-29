@@ -16,5 +16,5 @@ final readonly class CustomWheelsize implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::METERS;
+    public const UNIT = Unit::METERS;
 }

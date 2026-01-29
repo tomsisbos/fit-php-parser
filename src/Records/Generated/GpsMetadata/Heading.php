@@ -16,5 +16,5 @@ final readonly class Heading implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::DEGREES;
+    public const UNIT = Unit::DEGREES;
 }

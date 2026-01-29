@@ -16,5 +16,5 @@ final readonly class Cycles implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::CYCLES;
+    public const UNIT = Unit::CYCLES;
 }

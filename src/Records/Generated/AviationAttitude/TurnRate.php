@@ -16,5 +16,5 @@ final readonly class TurnRate implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::RADIANS_PER_SECOND;
+    public const UNIT = Unit::RADIANS_PER_SECOND;
 }

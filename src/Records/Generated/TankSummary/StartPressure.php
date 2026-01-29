@@ -16,5 +16,5 @@ final readonly class StartPressure implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::BAR;
+    public const UNIT = Unit::BAR;
 }

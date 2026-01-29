@@ -16,5 +16,5 @@ final readonly class Pitch implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::RADIANS;
+    public const UNIT = Unit::RADIANS;
 }

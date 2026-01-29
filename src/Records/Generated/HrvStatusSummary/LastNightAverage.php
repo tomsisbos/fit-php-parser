@@ -16,5 +16,5 @@ final readonly class LastNightAverage implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::MILLISECONDS;
+    public const UNIT = Unit::MILLISECONDS;
 }

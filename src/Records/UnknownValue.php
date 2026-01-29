@@ -8,7 +8,7 @@ use FitParser\Enums\Unit;
 
 final class UnknownValue implements ValueInterface
 {
-    public const Unit UNIT = Unit::NONE;
+    public const UNIT = Unit::NONE;
     private readonly null|bool|\DateTimeImmutable|float|int|string $value;
 
     private function __construct(null|bool|\DateTimeImmutable|float|int|string $value)

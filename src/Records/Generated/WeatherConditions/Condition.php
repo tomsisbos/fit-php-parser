@@ -16,5 +16,5 @@ final readonly class Condition implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::NONE;
+    public const UNIT = Unit::NONE;
 }

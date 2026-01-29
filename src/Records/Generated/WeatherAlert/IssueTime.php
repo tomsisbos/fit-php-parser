@@ -16,5 +16,5 @@ final readonly class IssueTime implements DateTimeValueInterface
 {
     use DateTimeValueTrait;
 
-    public const Unit UNIT = Unit::NONE;
+    public const UNIT = Unit::NONE;
 }

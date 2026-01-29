@@ -16,5 +16,5 @@ final readonly class AvgStepLength implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::MILLIMETERS;
+    public const UNIT = Unit::MILLIMETERS;
 }

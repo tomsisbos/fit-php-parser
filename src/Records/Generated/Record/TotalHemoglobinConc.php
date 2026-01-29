@@ -16,5 +16,5 @@ final readonly class TotalHemoglobinConc implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::GRAM_PER_DECILITER;
+    public const UNIT = Unit::GRAM_PER_DECILITER;
 }

@@ -16,5 +16,5 @@ final readonly class GyroX implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::DEGREES_PER_SECONDS;
+    public const UNIT = Unit::DEGREES_PER_SECONDS;
 }

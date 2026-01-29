@@ -16,5 +16,5 @@ final readonly class AvgFractionalCadence implements FloatValueInterface
 {
     use FloatValueTrait;
 
-    public const Unit UNIT = Unit::RPM;
+    public const UNIT = Unit::RPM;
 }

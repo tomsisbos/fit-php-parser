@@ -16,5 +16,5 @@ final readonly class MaxLevMotorPower implements IntValueInterface
 {
     use IntValueTrait;
 
-    public const Unit UNIT = Unit::WATTS;
+    public const UNIT = Unit::WATTS;
 }
