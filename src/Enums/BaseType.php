@@ -11,20 +11,30 @@ enum BaseType: int
     case ENUM = 0x00;
     case SINT8 = 0x01;
     case UINT8 = 0x02;
-    case SINT16 = 0x83;
-    case UINT16 = 0x84;
-    case SINT32 = 0x85;
-    case UINT32 = 0x86;
+    case SINT16 = 0x03;
+    case UINT16 = 0x04;
+    case SINT32 = 0x05;
+    case UINT32 = 0x06;
     case STRING = 0x07;
-    case FLOAT32 = 0x88;
-    case FLOAT64 = 0x89;
+    case FLOAT32 = 0x08;
+    case FLOAT64 = 0x09;
     case UINT8Z = 0x0A;
-    case UINT16Z = 0x8B;
-    case UINT32Z = 0x8C;
+    case UINT16Z = 0x0B;
+    case UINT32Z = 0x0C;
     case BYTE = 0x0D;
-    case SINT64 = 0x8E;
-    case UINT64 = 0x8F;
-    case UINT64Z = 0x9;
+    case SINT64 = 0x0E;
+    case UINT64 = 0x0F;
+    case UINT64Z = 0x10;
+    case SINT16_LE = 0x83;
+    case UINT16_LE = 0x84;
+    case SINT32_LE = 0x85;
+    case UINT32_LE = 0x86;
+    case FLOAT32_LE = 0x88;
+    case FLOAT64_LE = 0x89;
+    case UINT16Z_LE = 0x8B;
+    case UINT32Z_LE = 0x8C;
+    case SINT64_LE = 0x8E;
+    case UINT64_LE = 0x8F;
 
     public static function sizeFrom(BaseType $baseType): int
     {
@@ -36,15 +46,25 @@ enum BaseType: int
             self::BYTE,
             self::UINT8 => 1,
             self::SINT16,
+            self::SINT16_LE,
+            self::UINT16,
+            self::UINT16_LE,
             self::UINT16Z,
-            self::UINT16 => 2,
+            self::UINT16Z_LE => 2,
             self::SINT32,
+            self::SINT32_LE,
             self::UINT32,
+            self::UINT32_LE,
             self::UINT32Z,
-            self::FLOAT32 => 4,
+            self::UINT32Z_LE,
+            self::FLOAT32,
+            self::FLOAT32_LE => 4,
             self::FLOAT64,
+            self::FLOAT64_LE,
             self::SINT64,
+            self::SINT64_LE,
             self::UINT64,
+            self::UINT64_LE,
             self::UINT64Z => 8,
         };
     }
@@ -56,18 +76,28 @@ enum BaseType: int
             self::BYTE,
             self::UINT8 => 0xFF,
             self::SINT8 => 0x7F,
-            self::SINT16 => 0x7FFF,
-            self::UINT16 => 0xFFFF,
-            self::SINT32 => 0x7FFFFFFF,
+            self::SINT16,
+            self::SINT16_LE => 0x7FFF,
+            self::UINT16,
+            self::UINT16_LE => 0xFFFF,
+            self::SINT32,
+            self::SINT32_LE => 0x7FFFFFFF,
             self::UINT32,
-            self::FLOAT32 => 0xFFFFFFFF,
+            self::UINT32_LE,
+            self::FLOAT32,
+            self::FLOAT32_LE => 0xFFFFFFFF,
             self::STRING,
             self::UINT8Z => 0x00,
             self::FLOAT64,
-            self::UINT64 => 0xFFFFFFFFFFFFFFFF,
-            self::UINT16Z => 0x0000,
-            self::UINT32Z => 0x00000000,
-            self::SINT64 => 0x7FFFFFFFFFFFFFFF,
+            self::FLOAT64_LE,
+            self::UINT64,
+            self::UINT64_LE => 0xFFFFFFFFFFFFFFFF,
+            self::UINT16Z,
+            self::UINT16Z_LE => 0x0000,
+            self::UINT32Z,
+            self::UINT32Z_LE => 0x00000000,
+            self::SINT64,
+            self::SINT64_LE => 0x7FFFFFFFFFFFFFFF,
             self::UINT64Z => 0x0000000000000000,
         };
     }
@@ -81,17 +111,27 @@ enum BaseType: int
             self::UINT8Z,
             self::UINT8 => 'C',
             self::SINT16 => $littleEndian ? 's' : 'S',
+            self::SINT16_LE => 's',
             self::UINT16,
             self::UINT16Z => $littleEndian ? 'v' : 'n',
+            self::UINT16_LE,
+            self::UINT16Z_LE => 'v',
             self::SINT32,
             self::UINT32,
             self::UINT32Z => $littleEndian ? 'V' : 'N',
+            self::SINT32_LE,
+            self::UINT32_LE,
+            self::UINT32Z_LE => 'V',
             self::STRING => 'a*',
             self::FLOAT32 => $littleEndian ? 'f' : 'G',
+            self::FLOAT32_LE => 'f',
             self::FLOAT64 => $littleEndian ? 'd' : 'E',
+            self::FLOAT64_LE => 'd',
             self::SINT64 => $littleEndian ? 'q' : 'J',
+            self::SINT64_LE => 'q',
             self::UINT64,
             self::UINT64Z => $littleEndian ? 'P' : 'Q',
+            self::UINT64_LE => 'P',
         };
     }
 
@@ -129,19 +169,29 @@ enum BaseType: int
             self::BYTE,
             self::STRING,
             self::FLOAT32,
+            self::FLOAT32_LE,
             self::FLOAT64,
+            self::FLOAT64_LE,
             self::ENUM => false,
             self::SINT8,
             self::UINT8Z,
             self::UINT8,
             self::SINT16,
+            self::SINT16_LE,
             self::UINT16,
+            self::UINT16_LE,
             self::UINT16Z,
+            self::UINT16Z_LE,
             self::SINT32,
+            self::SINT32_LE,
             self::UINT32,
+            self::UINT32_LE,
             self::UINT32Z,
+            self::UINT32Z_LE,
             self::SINT64,
+            self::SINT64_LE,
             self::UINT64,
+            self::UINT64_LE,
             self::UINT64Z => true,
         };
     }
