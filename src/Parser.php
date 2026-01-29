@@ -81,6 +81,9 @@ final class Parser
     private function decodeNextRecord(): void
     {
         $recordHeader = $this->stream->peekByte();
+        
+        error_log(sprintf("[Parser] Byte %d: Header=0x%02X, Compressed=%d, Definition=%d",
+            $this->stream->position(), $recordHeader, ($recordHeader & 0x80) >> 7, ($recordHeader & 0x40) >> 6));
 
         // Check for compressed timestamp header (bit 7 set)
         if (($recordHeader & self::MESG_COMPRESSED_TIMESTAMP_MASK) === self::MESG_COMPRESSED_TIMESTAMP_MASK) {
