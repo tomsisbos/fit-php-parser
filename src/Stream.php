@@ -121,6 +121,8 @@ final class Stream
     public function readBytes(int $size): ByteString
     {
         if ($this->position + $size > $this->string->length()) {
+            error_log(sprintf('[Stream] ERROR: Trying to read %d bytes at position %d, but only %d bytes total (need %d more)',
+                $size, $this->position, $this->string->length(), $this->position + $size - $this->string->length()));
             throw new \RuntimeException(\sprintf('End of stream at byte %d', $this->position));
         }
 

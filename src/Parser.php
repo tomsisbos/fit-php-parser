@@ -151,6 +151,10 @@ final class Parser
 
     private function decodeMessageData(DefinitionMessage $messageDefinition, ?int $timeOffset): void
     {
+        error_log(sprintf('[MessageData] Reading data for local=%d, global=%d, %d fields, message size=%d bytes, position=%d',
+            $messageDefinition->localMesgNum, $messageDefinition->globalMessageNumber,
+            $messageDefinition->numFields, $messageDefinition->messageSize, $this->stream->position()));
+
         $fields = iterator_to_array($messageDefinition->profileMessage->getFields());
 
         $record = $this->recordsRegistry->getRecord($messageDefinition->globalMessageNumber);
