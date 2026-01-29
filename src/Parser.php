@@ -13,8 +13,10 @@ use Symfony\Component\String\ByteString;
 
 final class Parser
 {
+    private const MESG_COMPRESSED_TIMESTAMP_MASK = 0x80;
     private const MESG_DEFINITION_MASK = 0x40;
     private const MESG_HEADER_MASK = 0x00;
+    private const TIME_OFFSET_MASK = 0x1F;
     private Header $header;
 
     private Stream $stream;
@@ -80,13 +82,41 @@ final class Parser
     {
         $recordHeader = $this->stream->peekByte();
 
-        if (($recordHeader & self::MESG_DEFINITION_MASK) === self::MESG_HEADER_MASK) {
-            $this->decodeMessage();
+        // Check for compressed timestamp header (bit 7 set)
+        if (($recordHeader & self::MESG_COMPRESSED_TIMESTAMP_MASK) === self::MESG_COMPRESSED_TIMESTAMP_MASK) {
+            $this->decodeCompressedTimestampMessage();
+            return;
         }
 
+        // Check for definition message (bit 6 set, bit 7 not set)
         if (($recordHeader & self::MESG_DEFINITION_MASK) === self::MESG_DEFINITION_MASK) {
             $this->decodeMessageDefinition();
+            return;
         }
+
+        // Normal data message (bits 6 and 7 not set)
+        $this->decodeMessage();
+    }
+
+    private function decodeCompressedTimestampMessage(): void
+    {
+        $header = $this->stream->readByte();
+
+        // Extract local message number (bits 5-2)
+        $localMesgNum = ($header >> 5) & 0x03;
+
+        // Extract time offset (bits 4-0)
+        $timeOffset = $header & self::TIME_OFFSET_MASK;
+
+        // Get the message definition
+        $messageDefinition = $this->localMessageDefinitions[$localMesgNum] ?? null;
+
+        if (null === $messageDefinition) {
+            throw new \RuntimeException(\sprintf('No message definition found for local message number %d', $localMesgNum));
+        }
+
+        // Decode the message data (same as normal message, but with timestamp offset)
+        $this->decodeMessageData($messageDefinition, $timeOffset);
     }
 
     private function decodeMessageDefinition(): void
@@ -108,6 +138,11 @@ final class Parser
 
         $messageDefinition = $this->localMessageDefinitions[$localMesgNum];
 
+        $this->decodeMessageData($messageDefinition, null);
+    }
+
+    private function decodeMessageData(DefinitionMessage $messageDefinition, ?int $timeOffset): void
+    {
         $fields = iterator_to_array($messageDefinition->profileMessage->getFields());
 
         $record = $this->recordsRegistry->getRecord($messageDefinition->globalMessageNumber);
