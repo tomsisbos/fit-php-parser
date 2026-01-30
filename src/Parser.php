@@ -82,9 +82,6 @@ final class Parser
     {
         $recordHeader = $this->stream->peekByte();
         
-        error_log(sprintf("[Parser] Byte %d: Header=0x%02X, Compressed=%d, Definition=%d",
-            $this->stream->position(), $recordHeader, ($recordHeader & 0x80) >> 7, ($recordHeader & 0x40) >> 6));
-
         // Check for compressed timestamp header (bit 7 set)
         if (($recordHeader & self::MESG_COMPRESSED_TIMESTAMP_MASK) === self::MESG_COMPRESSED_TIMESTAMP_MASK) {
             $this->decodeCompressedTimestampMessage();
@@ -124,10 +121,7 @@ final class Parser
 
     private function decodeMessageDefinition(): void
     {
-        error_log(sprintf("[Definition] Reading at position %d", $this->stream->position()));
         $messageDefinition = DefinitionMessage::create($this->stream);
-        error_log(sprintf("[Definition] Defined local=%d, global=%d, fields=%d",
-            $messageDefinition->localMesgNum, $messageDefinition->globalMessageNumber, $messageDefinition->numFields));
 
         $this->localMessageDefinitions[$messageDefinition->localMesgNum] = $messageDefinition;
     }
@@ -136,9 +130,6 @@ final class Parser
     {
         $recordHeader = $this->stream->readByte();
         $localMesgNum = $recordHeader & Mask::LOCAL_MESG_NUM_MASK->value;
-
-        error_log(sprintf("[Data] Reading local=%d at position %d, have defs: [%s]",
-            $localMesgNum, $this->stream->position() - 1, implode(',', array_keys($this->localMessageDefinitions))));
 
         if (false === \array_key_exists($localMesgNum, $this->localMessageDefinitions)) {
             throw new \RuntimeException("Invalid record definition: {$localMesgNum}");
@@ -151,9 +142,10 @@ final class Parser
 
     private function decodeMessageData(DefinitionMessage $messageDefinition, ?int $timeOffset): void
     {
-        error_log(sprintf('[MessageData] Reading data for local=%d, global=%d, %d fields, message size=%d bytes, position=%d',
-            $messageDefinition->localMesgNum, $messageDefinition->globalMessageNumber,
-            $messageDefinition->numFields, $messageDefinition->messageSize, $this->stream->position()));
+        // Skip empty messages (manufacturer-specific markers with no data)
+        if ($messageDefinition->numFields === 0 || $messageDefinition->messageSize === 0) {
+            return;
+        }
 
         $fields = iterator_to_array($messageDefinition->profileMessage->getFields());
 
